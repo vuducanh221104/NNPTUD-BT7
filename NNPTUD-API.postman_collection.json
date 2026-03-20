@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "NNPTUD API",
-    "description": "API cho dự án NNPTUD-BT6",
+    "description": "API cho dự án NNPTUD-BT7 - Inventory Management",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -481,6 +481,119 @@
             "url": {
               "raw": "{{baseUrl}}/",
               "host": ["{{baseUrl}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory",
+      "item": [
+        {
+          "name": "Get All Inventories",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventory",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventory"]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "Get Inventory By ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventory/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventory", ":id"]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "Add Stock",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventory/add_stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventory", "add_stock"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"product\": \"<PRODUCT_ID>\",\n    \"quantity\": 100\n}"
+            }
+          }
+        },
+        {
+          "name": "Remove Stock",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventory/remove_stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventory", "remove_stock"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"product\": \"<PRODUCT_ID>\",\n    \"quantity\": 10\n}"
+            }
+          }
+        },
+        {
+          "name": "Reservation",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventory/reservation",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventory", "reservation"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"product\": \"<PRODUCT_ID>\",\n    \"quantity\": 5\n}"
+            }
+          }
+        },
+        {
+          "name": "Sold",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventory/sold",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventory", "sold"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"product\": \"<PRODUCT_ID>\",\n    \"quantity\": 3\n}"
             }
           }
         }
